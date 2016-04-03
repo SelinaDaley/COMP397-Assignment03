@@ -9,6 +9,10 @@ var stats: Stats;
 var currentScene: objects.Scene;
 var scene: number;
 
+var livesValue: number;
+var scoreValue: number;
+var highScoreValue: number = 0;
+
 // Game Scenes
 var menu: scenes.Menu;
 var play: scenes.Play;
@@ -22,7 +26,15 @@ var assetData:objects.Asset[] = [
     {id: "ocean", src:"../../Assets/images/ocean.gif"},
     {id: "plane", src:"../../Assets/images/plane.png"},
     {id: "island", src:"../../Assets/images/island.png"},
-    {id: "cloud", src:"../../Assets/images/cloud.png"},
+    { id: "cloud", src: "../../Assets/images/cloud.png" },
+
+    { id: "bkgd", src: "../../Assets/images/bkgd.png" },
+    { id: "hero", src: "../../Assets/images/hero2.png" },
+    { id: "enemy1", src: "../../Assets/images/enemy1.png" },
+
+    {id: "engine", src:"../../Assets/audio/engine.ogg"},
+    {id: "yay", src:"../../Assets/audio/yay.ogg"},
+    {id: "thunder", src:"../../Assets/audio/thunder.ogg"}
 ];
 
 function preload() {

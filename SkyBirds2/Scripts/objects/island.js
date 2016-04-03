@@ -5,30 +5,32 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // ISLAND CLASS +++++++++++++++++++++++++++++++++++++
+    // ISLAND CLASS ++++++++++++++++++++++++++++++++++++
     var Island = (function (_super) {
         __extends(Island, _super);
-        // PRIVATE INSTANCE VARIABLES
-        //CUNSTROCTOR METHOD +++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE INSTANCE VARIABLES +++++++++++++++++
+        // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Island() {
             _super.call(this, "island");
-            this._speed.y = 5; // 5 pixels per frame
+            this._speed.y = 5; //island speed
             this._reset(this._topBounds);
             this.name = "island";
+            this.soundString = "yay";
         }
-        // PROTECTED METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS ++++++++++++++++++++++++++++
         Island.prototype._checkBounds = function (value) {
-            //check to see if the top of the island is outside the view port
+            // check to see if the top of the island 
+            // is outside the viewport         
             if (this.y >= value) {
                 this._reset(this._topBounds);
             }
         };
-        //reset the island offscreen
+        // reset the ocean offscreen
         Island.prototype._reset = function (value) {
             this.y = value;
             this.x = Math.floor(Math.random() * this._rightBounds) + this._leftBounds;
         };
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Island.prototype.update = function () {
             // scroll the island 5 px per frame
             this.y += this._speed.y;
@@ -38,4 +40,3 @@ var objects;
     })(objects.GameObject);
     objects.Island = Island;
 })(objects || (objects = {}));
-//# sourceMappingURL=island.js.map

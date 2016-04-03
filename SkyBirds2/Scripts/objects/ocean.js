@@ -5,28 +5,29 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // OCEAN CLASS +++++++++++++++++++++++++++++++++++++
+    // OCEAN CLASS ++++++++++++++++++++++++++++++++++++
     var Ocean = (function (_super) {
         __extends(Ocean, _super);
-        // PRIVATE INSTANCE VARIABLES
-        //CUNSTROCTOR METHOD +++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE INSTANCE VARIABLES +++++++++++++++++
+        // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Ocean() {
             _super.call(this, "ocean");
-            this._speed.y = 5; // 5 pixels per frame
+            this._speed.y = 5; //ocean speed
             this._reset(-960);
         }
-        // PROTECTED METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS ++++++++++++++++++++++++++++
         Ocean.prototype._checkBounds = function (value) {
-            //check to see if the top of the ocean has met the top of the scene
+            // check to see if the top of the ocean 
+            // is met the top of the scene
             if (this.y >= value) {
                 this._reset(-960);
             }
         };
-        //reset the ocean offscreen
+        // reset the ocean offscreen
         Ocean.prototype._reset = function (value) {
             this.y = value;
         };
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Ocean.prototype.update = function () {
             // scroll the ocean 5 px per frame
             this.y += this._speed.y;
@@ -36,4 +37,3 @@ var objects;
     })(objects.GameObject);
     objects.Ocean = Ocean;
 })(objects || (objects = {}));
-//# sourceMappingURL=ocean.js.map

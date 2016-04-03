@@ -5,10 +5,10 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // GAMEOBJECT SUPER CLASS +++++++++++++++++++++++++++++++++++++
+    // GAMEOBJECT SUPER CLASS ++++++++++++++++++++++++++++++++++++
     var GameObject = (function (_super) {
         __extends(GameObject, _super);
-        //CUNSTROCTOR METHOD +++++++++++++++++++++++++++++++++++++++++++++++++++
+        // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function GameObject(bitmapString) {
             _super.call(this, assets.getResult(bitmapString));
             this._speed = new createjs.Point(0, 0);
@@ -16,32 +16,32 @@ var objects;
             this.height = this.getBounds().height;
             this.centerX = this.width * 0.5;
             this.centerY = this.height * 0.5;
+            this.isColliding = false;
             this._topBounds = -this.height;
             this._bottomBounds = config.Screen.HEIGHT + this.height;
             this._leftBounds = 0;
             this._rightBounds = config.Screen.WIDTH - this.width;
         }
-        // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS ++++++++++++++++++++++++++++
         GameObject.prototype._checkBounds = function (value) {
             var resetValue = 0;
-            //check if y value has met the reset criteria
-            if (this.y >= value) {
+            // check if x value has met the reset criteria
+            if (this.x >= value) {
                 this._reset(resetValue);
             }
         };
-        //reset the object offscreen
+        // Reset the Object offscreen
         GameObject.prototype._reset = function (value) {
-            this.y = value;
+            this.x = value;
         };
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PUBLIC METHODS ++++++++++++++++++++++++++++++
         GameObject.prototype.update = function () {
             var boundValue = 0;
             // scroll the ocean 5 px per frame
-            this.y += this._speed.y;
+            this.x += this._speed.x;
             this._checkBounds(boundValue);
         };
         return GameObject;
     })(createjs.Bitmap);
     objects.GameObject = GameObject;
 })(objects || (objects = {}));
-//# sourceMappingURL=gameobject.js.map

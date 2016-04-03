@@ -5,18 +5,24 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // PLAYER CLASS ++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // PLAYER CLASS ++++++++++++++++++++++++++++++
     var Player = (function (_super) {
         __extends(Player, _super);
         function Player() {
-            _super.call(this, assets.getResult("plane"));
+            _super.call(this, assets.getResult("hero"));
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
             this._leftBounds = this.width * 0.5;
             this._rightBounds = config.Screen.WIDTH - (this.width * 0.5);
-            this.y = 430;
+            this._topBounds = this.height * 0.5;
+            this._bottomBounds = config.Screen.HEIGHT - (this.height * 1.2);
+            //this.y = 430;
+            // assign and play the engine sound
+            this.engineSound = createjs.Sound.play("engine");
+            // Loop engine sound forever
+            this.engineSound.loop = -1;
         }
         // PRIVATE METHODS
         Player.prototype._checkBounds = function () {
@@ -26,14 +32,20 @@ var objects;
             if (this.x > this._rightBounds) {
                 this.x = this._rightBounds;
             }
+            if (this.y < this._topBounds) {
+                this.y = this._topBounds;
+            }
+            if (this.y > this._bottomBounds) {
+                this.y = this._bottomBounds;
+            }
         };
         // PUBLIC METHODS
         Player.prototype.update = function () {
             this.x = stage.mouseX;
+            this.y = stage.mouseY;
             this._checkBounds();
         };
         return Player;
     })(createjs.Bitmap);
     objects.Player = Player;
 })(objects || (objects = {}));
-//# sourceMappingURL=player.js.map

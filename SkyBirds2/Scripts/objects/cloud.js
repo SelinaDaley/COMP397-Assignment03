@@ -5,34 +5,35 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // CLOUD CLASS +++++++++++++++++++++++++++++++++++++
+    // CLOUD CLASS ++++++++++++++++++++++++++++++++++++
     var Cloud = (function (_super) {
         __extends(Cloud, _super);
-        // PRIVATE INSTANCE VARIABLES
-        //CUNSTROCTOR METHOD +++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE INSTANCE VARIABLES +++++++++++++++++
+        // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Cloud() {
             _super.call(this, "cloud");
-            this._speed.y = 5; // 5 pixels per frame
             this._reset(this._topBounds);
             this.name = "cloud";
+            this.soundString = "thunder";
         }
-        // PROTECTED METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PRIVATE METHODS ++++++++++++++++++++++++++++
         Cloud.prototype._checkBounds = function (value) {
-            //check to see if the top of the island is outside the view port
+            // check to see if the top of the cloud 
+            // is outside the viewport         
             if (this.y >= value) {
                 this._reset(this._topBounds);
             }
         };
-        //reset the island offscreen
+        // reset the cloud offscreen
         Cloud.prototype._reset = function (value) {
             this._speed.y = Math.floor(Math.random() * 5) + 5;
             this._speed.x = Math.floor(Math.random() * 4) - 2;
             this.y = value;
             this.x = Math.floor(Math.random() * this._rightBounds) + this._leftBounds;
         };
-        // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        // PUBLIC METHODS ++++++++++++++++++++++++++++++
         Cloud.prototype.update = function () {
-            // scroll the island 5 px per frame
+            // scroll the cloud down the screen
             this.y += this._speed.y;
             this.x += this._speed.x;
             this._checkBounds(this._bottomBounds);
@@ -41,4 +42,3 @@ var objects;
     })(objects.GameObject);
     objects.Cloud = Cloud;
 })(objects || (objects = {}));
-//# sourceMappingURL=cloud.js.map

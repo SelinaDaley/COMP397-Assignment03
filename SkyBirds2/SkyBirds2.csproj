@@ -96,6 +96,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\images\bkgd.png" />
+    <Content Include="Assets\images\enemy1.png" />
+    <Content Include="Assets\images\hero.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -116,6 +119,7 @@
     <Content Include="Scripts\core\_reference.js.map" />
     <Content Include="Scripts\lib\jquery-2.1.4.min.map" />
     <Content Include="Scripts\objects\asset.js.map" />
+    <Content Include="Scripts\objects\background\background.js" />
     <Content Include="Scripts\objects\button.js.map" />
     <Content Include="Scripts\objects\cloud.js.map" />
     <Content Include="Scripts\objects\gameobject.js.map" />
@@ -127,6 +131,7 @@
     <Content Include="Scripts\scenes\end.js.map" />
     <Content Include="Scripts\scenes\menu.js.map" />
     <Content Include="Scripts\scenes\play.js.map" />
+    <Content Include="Scripts\objects\background\background.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -200,6 +205,7 @@
     <TypeScriptCompile Include="Scripts\core\_reference.ts" />
     <TypeScriptCompile Include="Scripts\managers\collision.ts" />
     <TypeScriptCompile Include="Scripts\objects\asset.ts" />
+    <TypeScriptCompile Include="Scripts\objects\background\background.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\cloud.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobject.ts" />
@@ -225,6 +231,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="Scripts\objects\enemies\" />
+    <Folder Include="Scripts\objects\items\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
