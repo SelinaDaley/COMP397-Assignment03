@@ -12,7 +12,7 @@ var objects;
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
         function Background() {
             _super.call(this, "bkgd");
-            this._speed.x -= 5; //background speed
+            this._speed.x -= 7; //background speed
             this._reset(10);
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
@@ -31,7 +31,6 @@ var objects;
         Background.prototype.update = function () {
             // scroll the background 5 px per frame
             this.x += this._speed.x;
-            console.log(this.x);
             this._checkBounds(-1024);
         };
         return Background;

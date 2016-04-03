@@ -6,6 +6,7 @@
 /// <reference path="../objects/scene.ts" />
 /// <reference path="../objects/gameobject.ts" />
 /// <reference path="../objects/background/background.ts" />
+/// <reference path="../objects/enemies/alien.ts" />
 /// <reference path="../objects/island.ts"/>
 /// <reference path="../objects/cloud.ts"/>
 /// <reference path="../objects/player.ts" />

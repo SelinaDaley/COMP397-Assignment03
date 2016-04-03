@@ -1,3 +1,4 @@
+//using System.Threading.*;
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -24,26 +25,26 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Play.prototype.start = function () {
-            // Set Cloud Count
-            this._cloudCount = 3;
+            // Set Enemy Count
+            this._alienCount = 5;
             livesValue = 5;
             scoreValue = 0;
-            // Instantiate Cloud array
-            this._clouds = new Array();
+            // Instantiate arrays
+            this._aliens = new Array();
             // added background to the scene
             this._background = new objects.Background();
             this.addChild(this._background);
-            // added island to the scene
-            this._island = new objects.Island();
-            this.addChild(this._island);
+            /*// added island to the scene
+            this._alien = new objects.Alien();
+            this.addChild(this._alien);*/
+            // added aliens to the scene
+            for (var alien = 0; alien < this._alienCount; alien++) {
+                this._aliens[alien] = new objects.Alien(alien);
+                this.addChild(this._aliens[alien]);
+            }
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
-            //added clouds to the scene
-            for (var cloud = 0; cloud < this._cloudCount; cloud++) {
-                this._clouds[cloud] = new objects.Cloud();
-                this.addChild(this._clouds[cloud]);
-            }
             //added LivesLabel to the scene
             this._livesLabel = new objects.Label("Lives: " + livesValue, "40px Consolas", "#ffff00", 10, 10, false);
             this.addChild(this._livesLabel);
@@ -57,15 +58,15 @@ var scenes;
         };
         // PLAY Scene updates here
         Play.prototype.update = function () {
+            //this._alien.update();
+            //this._collision.check(this._alien);
             var _this = this;
-            this._island.update();
             this._background.update();
             this._player.update();
-            this._clouds.forEach(function (cloud) {
-                cloud.update();
-                _this._collision.check(cloud);
+            this._aliens.forEach(function (alien) {
+                alien.update();
+                _this._collision.check(alien);
             });
-            this._collision.check(this._island);
             this._updateScore();
         };
         return Play;

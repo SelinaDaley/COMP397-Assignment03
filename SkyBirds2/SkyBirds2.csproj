@@ -96,9 +96,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\images\alien.png" />
+    <Content Include="Assets\images\alien2.png" />
     <Content Include="Assets\images\bkgd.png" />
-    <Content Include="Assets\images\enemy1.png" />
     <Content Include="Assets\images\hero.png" />
+    <Content Include="Assets\images\hero2.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -122,6 +124,7 @@
     <Content Include="Scripts\objects\background\background.js" />
     <Content Include="Scripts\objects\button.js.map" />
     <Content Include="Scripts\objects\cloud.js.map" />
+    <Content Include="Scripts\objects\enemies\alien.js" />
     <Content Include="Scripts\objects\gameobject.js.map" />
     <Content Include="Scripts\objects\island.js.map" />
     <Content Include="Scripts\objects\label.js.map" />
@@ -132,6 +135,8 @@
     <Content Include="Scripts\scenes\menu.js.map" />
     <Content Include="Scripts\scenes\play.js.map" />
     <Content Include="Scripts\objects\background\background.js.map" />
+    <Content Include="Scripts\objects\enemies\alien.js.map" />
+    <Content Include="Scripts\managers\collision.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -208,6 +213,7 @@
     <TypeScriptCompile Include="Scripts\objects\background\background.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\cloud.ts" />
+    <TypeScriptCompile Include="Scripts\objects\enemies\alien.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobject.ts" />
     <TypeScriptCompile Include="Scripts\objects\island.ts" />
     <TypeScriptCompile Include="Scripts\objects\label.ts" />
@@ -231,7 +237,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="Scripts\objects\enemies\" />
     <Folder Include="Scripts\objects\items\" />
   </ItemGroup>
   <PropertyGroup>

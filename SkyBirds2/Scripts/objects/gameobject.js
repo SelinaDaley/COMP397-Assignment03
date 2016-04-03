@@ -19,8 +19,8 @@ var objects;
             this.isColliding = false;
             this._topBounds = -this.height;
             this._bottomBounds = config.Screen.HEIGHT + this.height;
-            this._leftBounds = 0;
-            this._rightBounds = config.Screen.WIDTH - this.width;
+            this._leftBounds = -this.width;
+            this._rightBounds = config.Screen.WIDTH + this.width;
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         GameObject.prototype._checkBounds = function (value) {

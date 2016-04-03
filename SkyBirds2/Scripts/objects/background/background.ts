@@ -7,7 +7,7 @@
         constructor() {
             super("bkgd");
 
-            this._speed.x -= 5; //background speed
+            this._speed.x -= 7; //background speed
             this._reset(10);
         }
         
@@ -31,7 +31,6 @@
         public update(): void {
             // scroll the background 5 px per frame
             this.x += this._speed.x;
-            console.log(this.x);
             this._checkBounds(-1024);
         }
     }

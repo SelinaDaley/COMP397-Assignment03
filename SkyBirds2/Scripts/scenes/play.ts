@@ -1,11 +1,12 @@
+//using System.Threading.*;
+
 // PLAY SCENE
 module scenes {
     export class Play extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _background: objects.Background;
-        private _island: objects.Island;
-        private _clouds: objects.Cloud[];
-        private _cloudCount:number;
+        private _aliens: objects.Alien[];
+        private _alienCount: number;
         private _player: objects.Player;
         private _collision: managers.Collision;
         private _livesLabel: objects.Label;
@@ -32,32 +33,33 @@ module scenes {
         
         // Start Method
         public start(): void {
-            // Set Cloud Count
-            this._cloudCount = 3;
+            // Set Enemy Count
+            this._alienCount = 5;
             livesValue = 5;
             scoreValue = 0;
             
-            // Instantiate Cloud array
-            this._clouds = new Array<objects.Cloud>();
+            // Instantiate arrays
+            this._aliens = new Array<objects.Alien>();
 
             // added background to the scene
             this._background = new objects.Background();
             this.addChild(this._background);
 
-            // added island to the scene
-            this._island = new objects.Island();
-            this.addChild(this._island);
+            /*// added island to the scene
+            this._alien = new objects.Alien();
+            this.addChild(this._alien);*/
+
+            // added aliens to the scene
+            for (var alien: number = 0; alien < this._alienCount; alien++) {
+                this._aliens[alien] = new objects.Alien(alien);                
+                this.addChild(this._aliens[alien]);
+            }
 
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
             
-            //added clouds to the scene
-            for(var cloud:number = 0; cloud < this._cloudCount; cloud++) {
-                this._clouds[cloud] = new objects.Cloud();
-               this.addChild(this._clouds[cloud]);
-            }
-            
+                        
             //added LivesLabel to the scene
             this._livesLabel = new objects.Label(
                 "Lives: " + livesValue,
@@ -89,24 +91,23 @@ module scenes {
 
         // PLAY Scene updates here
         public update(): void {
-            this._island.update();
+
+            //this._alien.update();
+            //this._collision.check(this._alien);
 
             this._background.update();
-
             this._player.update();
            
-            this._clouds.forEach(cloud => {
-                cloud.update();
-                this._collision.check(cloud);
+            this._aliens.forEach(alien => {
+                alien.update();
+                this._collision.check(alien);
             });
-            
-            this._collision.check(this._island);
-            
+                        
             this._updateScore();
-        }
-        
+        }        
         
         //EVENT HANDLERS ++++++++++++++++++++
         
     }
+    
 }

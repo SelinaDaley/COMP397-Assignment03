@@ -36,8 +36,8 @@ module managers {
                     }
 
                     // check if it's a cloud hit
-                    if (object.name === "cloud") {
-                        createjs.Sound.play("thunder");
+                    if (object.name === "cloud" || object.name === 'alien') {
+                        //createjs.Sound.play("thunder");
                         livesValue--; // lose a life
                         // check if player has no more lives
                         if(livesValue <= 0) {
