@@ -5,21 +5,20 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // ALIEN CLASS ++++++++++++++++++++++++++++++++++++
-    var Alien = (function (_super) {
-        __extends(Alien, _super);
+    // BOMB CLASS ++++++++++++++++++++++++++++++++++++
+    var Bomb = (function (_super) {
+        __extends(Bomb, _super);
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Alien(num) {
-            _super.call(this, "alien");
+        function Bomb() {
+            _super.call(this, "bomb");
+            // PRIVATE INSTANCE VARIABLES +++++++++++++++++
             this._firstSet = true;
-            this._num = num;
-            this._speed.x -= 5; //enemy speed
+            this._speed.x -= 10; //enemy speed
             this._reset(this._rightBounds);
-            this.name = "alien";
-            //this.soundString = "yay";
+            this.name = "bomb";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Alien.prototype._checkBounds = function (value) {
+        Bomb.prototype._checkBounds = function (value) {
             // check to see if the right of the enemy
             // is outside the viewport         
             if (this.x <= value) {
@@ -27,25 +26,27 @@ var objects;
             }
         };
         // reset the enemy offscreen
-        Alien.prototype._reset = function (value) {
+        Bomb.prototype._reset = function (value) {
+            this.x = value + 1000;
+            this.y = Math.floor(Math.random() * 365);
             if (this._firstSet) {
-                this.x = value + (this._num * 250);
+                this.x = value + 1000;
                 this.y = Math.floor(Math.random() * 365);
                 this._firstSet = false;
             }
             else {
-                this.x = value;
+                this.x = value + 1000;
                 this.y = Math.floor(Math.random() * 365);
-                scoreValue += 5;
+                scoreValue += 10;
             }
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Alien.prototype.update = function () {
+        Bomb.prototype.update = function () {
             // scroll the enemy -5 px per frame
             this.x += this._speed.x;
             this._checkBounds(this._leftBounds);
         };
-        return Alien;
+        return Bomb;
     })(objects.GameObject);
-    objects.Alien = Alien;
+    objects.Bomb = Bomb;
 })(objects || (objects = {}));

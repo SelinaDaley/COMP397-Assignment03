@@ -16,7 +16,7 @@ var objects;
             this.regY = this.height * 0.5;
             this._leftBounds = this.width * 0.5;
             this._rightBounds = config.Screen.WIDTH / 2;
-            this._topBounds = this.height * 1.5;
+            this._topBounds = this.height * 0.5;
             this._bottomBounds = config.Screen.HEIGHT - (this.height * 1.5);
             //this.y = 430;
             // assign and play the engine sound

@@ -5,21 +5,22 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // ALIEN CLASS ++++++++++++++++++++++++++++++++++++
-    var Alien = (function (_super) {
-        __extends(Alien, _super);
+    // DARK CLASS ++++++++++++++++++++++++++++++++++++
+    var Dark = (function (_super) {
+        __extends(Dark, _super);
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function Alien(num) {
-            _super.call(this, "alien");
+        function Dark(num) {
+            _super.call(this, "dark");
             this._firstSet = true;
             this._num = num;
-            this._speed.x -= 5; //enemy speed
+            this._sinNum = 0;
+            this._speed.x -= 7; //enemy speed
             this._reset(this._rightBounds);
-            this.name = "alien";
+            this.name = "dark";
             //this.soundString = "yay";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        Alien.prototype._checkBounds = function (value) {
+        Dark.prototype._checkBounds = function (value) {
             // check to see if the right of the enemy
             // is outside the viewport         
             if (this.x <= value) {
@@ -27,25 +28,29 @@ var objects;
             }
         };
         // reset the enemy offscreen
-        Alien.prototype._reset = function (value) {
+        Dark.prototype._reset = function (value) {
             if (this._firstSet) {
-                this.x = value + (this._num * 250);
-                this.y = Math.floor(Math.random() * 365);
+                this.x = value + (this._num * 550);
+                this.y = Math.floor(Math.random() * 175);
                 this._firstSet = false;
+                this._sinNum = 0;
             }
             else {
                 this.x = value;
-                this.y = Math.floor(Math.random() * 365);
-                scoreValue += 5;
+                this.y = Math.floor(Math.random() * 175);
+                scoreValue += 15;
+                this._sinNum = 0;
             }
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        Alien.prototype.update = function () {
+        Dark.prototype.update = function () {
+            this._sinNum += 0.05;
             // scroll the enemy -5 px per frame
             this.x += this._speed.x;
+            this.y = this.y + (Math.sin(this._sinNum) * 4);
             this._checkBounds(this._leftBounds);
         };
-        return Alien;
+        return Dark;
     })(objects.GameObject);
-    objects.Alien = Alien;
+    objects.Dark = Dark;
 })(objects || (objects = {}));

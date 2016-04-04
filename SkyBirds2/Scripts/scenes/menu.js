@@ -15,11 +15,14 @@ var scenes;
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
         Menu.prototype.start = function () {
+            // add the background image
+            this._background = new createjs.Bitmap("../../Assets/images/bkgd.png");
+            this.addChild(this._background);
             //Add Menu Label
-            this._menuLabel = new objects.Label("MAIL PILOT", "60px Consolas", "#ffff00", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._menuLabel = new objects.Label("SKY BIRDS 2", "60px Consolas", "#000000", config.Screen.CENTER_X * 0.83, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._menuLabel);
             // add the Start button to the MENU scene
-            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 180, true);
+            this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X * 0.83, config.Screen.CENTER_Y + 80, true);
             this.addChild(this._startButton);
             // Start Button event listener
             this._startButton.on("click", this._startButtonClick, this);

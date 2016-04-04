@@ -27,29 +27,36 @@ var scenes;
         Play.prototype.start = function () {
             // Set Enemy Count
             this._alienCount = 5;
+            this._darkCount = 2;
             livesValue = 5;
             scoreValue = 0;
             // Instantiate arrays
             this._aliens = new Array();
+            this._darks = new Array();
             // added background to the scene
             this._background = new objects.Background();
             this.addChild(this._background);
-            /*// added island to the scene
-            this._alien = new objects.Alien();
-            this.addChild(this._alien);*/
+            // added bomb to the scene
+            this._bomb = new objects.Bomb();
+            this.addChild(this._bomb);
             // added aliens to the scene
             for (var alien = 0; alien < this._alienCount; alien++) {
                 this._aliens[alien] = new objects.Alien(alien);
                 this.addChild(this._aliens[alien]);
             }
+            // added darks to the scene
+            for (var dark = 0; dark < this._darkCount; dark++) {
+                this._darks[dark] = new objects.Dark(dark);
+                this.addChild(this._darks[dark]);
+            }
             // added player to the scene
             this._player = new objects.Player();
             this.addChild(this._player);
             //added LivesLabel to the scene
-            this._livesLabel = new objects.Label("Lives: " + livesValue, "40px Consolas", "#ffff00", 10, 10, false);
+            this._livesLabel = new objects.Label("Lives: " + livesValue, "40px Consolas", "#ffffff", 10, 460, false);
             this.addChild(this._livesLabel);
             //added LivesLabel to the scene
-            this._scoreLabel = new objects.Label("Score: " + scoreValue, "40px Consolas", "#ffff00", 390, 10, false);
+            this._scoreLabel = new objects.Label("Score: " + scoreValue, "40px Consolas", "#ffffff", 290, 460, false);
             this.addChild(this._scoreLabel);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
@@ -58,14 +65,18 @@ var scenes;
         };
         // PLAY Scene updates here
         Play.prototype.update = function () {
-            //this._alien.update();
-            //this._collision.check(this._alien);
             var _this = this;
+            this._bomb.update();
+            this._collision.check(this._bomb);
             this._background.update();
             this._player.update();
             this._aliens.forEach(function (alien) {
                 alien.update();
                 _this._collision.check(alien);
+            });
+            this._darks.forEach(function (dark) {
+                dark.update();
+                _this._collision.check(dark);
             });
             this._updateScore();
         };

@@ -7,7 +7,7 @@
         constructor() {
             super("bkgd");
 
-            this._speed.x -= 7; //background speed
+            this._speed.x -= 8; //background speed
             this._reset(10);
         }
         

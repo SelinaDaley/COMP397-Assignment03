@@ -1,19 +1,16 @@
 ﻿module objects {
-    // ALIEN CLASS ++++++++++++++++++++++++++++++++++++
-    export class Alien extends objects.GameObject {
+    // BOMB CLASS ++++++++++++++++++++++++++++++++++++
+    export class Bomb extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES +++++++++++++++++
-        private _num: number;
         private _firstSet: boolean = true;
 
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        constructor(num:number) {
-            super("alien");
-
-            this._num = num;
-            this._speed.x -= 5; //enemy speed
+        constructor() {
+            super("bomb");
+            
+            this._speed.x -= 10; //enemy speed
             this._reset(this._rightBounds);
-            this.name = "alien";
-            //this.soundString = "yay";
+            this.name = "bomb";
         }
         
         // PRIVATE METHODS ++++++++++++++++++++++++++++
@@ -21,23 +18,25 @@
             // check to see if the right of the enemy
             // is outside the viewport         
             if (this.x <= value) {
-                this._reset(this._rightBounds);                
+                this._reset(this._rightBounds);
             }
         }
         
         // reset the enemy offscreen
-        protected _reset(value: number): void {
-
+        protected _reset(value: number): void {           
+            this.x = value + 1000;
+            this.y = Math.floor(Math.random() * 365); 
+            
             if (this._firstSet) {
-                this.x = value + (this._num * 250);
+                this.x = value + 1000;
                 this.y = Math.floor(Math.random() * 365);
-                this._firstSet = false;
+                this._firstSet = false; 
             }
             else {
-                this.x = value;
-                this.y = Math.floor(Math.random() * 365); 
-                scoreValue += 5;               
-            }            
+                this.x = value + 1000;
+                this.y = Math.floor(Math.random() * 365);  
+                scoreValue += 10;
+            }                  
         }        
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++

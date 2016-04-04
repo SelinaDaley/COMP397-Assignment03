@@ -11,6 +11,8 @@
 
 /// <reference path="../objects/background/background.ts" />
 /// <reference path="../objects/enemies/alien.ts" />
+/// <reference path="../objects/enemies/bomb.ts" />
+/// <reference path="../objects/enemies/dark.ts" />
 
 
 /// <reference path="../objects/island.ts"/>
