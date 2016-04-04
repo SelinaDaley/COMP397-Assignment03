@@ -20,9 +20,9 @@ var objects;
             this._bottomBounds = config.Screen.HEIGHT - (this.height * 1.5);
             //this.y = 430;
             // assign and play the engine sound
-            this.engineSound = createjs.Sound.play("engine");
+            this.gameMusic = createjs.Sound.play("gameMusic");
             // Loop engine sound forever
-            this.engineSound.loop = -1;
+            this.gameMusic.loop = -1;
         }
         // PRIVATE METHODS
         Player.prototype._checkBounds = function () {

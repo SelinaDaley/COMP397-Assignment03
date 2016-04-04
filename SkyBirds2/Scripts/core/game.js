@@ -24,6 +24,9 @@ var assetData = [
     { id: "alien", src: "../../Assets/images/alien2.png" },
     { id: "bomb", src: "../../Assets/images/bomb2.png" },
     { id: "dark", src: "../../Assets/images/dark2.png" },
+    { id: "introMusic", src: "../../Assets/audio/8-bit-music.mp3" },
+    { id: "gameMusic", src: "../../Assets/audio/POL-starry-night-short.wav" },
+    { id: "explosionMusic", src: "../../Assets/audio/BombExplosion.wav" },
     { id: "engine", src: "../../Assets/audio/engine.ogg" },
     { id: "yay", src: "../../Assets/audio/yay.ogg" },
     { id: "thunder", src: "../../Assets/audio/thunder.ogg" }

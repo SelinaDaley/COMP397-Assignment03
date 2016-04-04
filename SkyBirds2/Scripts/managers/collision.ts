@@ -3,6 +3,9 @@ module managers {
     export class Collision {
         // PRIVATE INSTANCE VARIABLES
         private _player: objects.Player;
+        private _explosionMusic: createjs.AbstractSoundInstance;
+
+
         constructor(player: objects.Player) {
             this._player = player;
         }
@@ -39,11 +42,12 @@ module managers {
                     if (object.name === 'alien' || object.name === 'bomb' || object.name === "dark") {
                         //createjs.Sound.play("thunder");
                         livesValue--; // lose a life
-                        
+                        this._explosionMusic = createjs.Sound.play("explosionMusic");
+
                         // check if player has no more lives
                         if(livesValue <= 0) {
                             // turn off player engine
-                            this._player.engineSound.stop();
+                            this._player.gameMusic.stop();
                             // show the Game Over Screen
                             scene = config.Scene.END;
                             changeScene();

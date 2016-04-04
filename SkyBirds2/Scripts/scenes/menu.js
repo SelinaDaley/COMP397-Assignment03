@@ -18,6 +18,10 @@ var scenes;
             // add the background image
             this._background = new createjs.Bitmap("../../Assets/images/bkgd.png");
             this.addChild(this._background);
+            // assign and play the background sound
+            this.introMusic = createjs.Sound.play("introMusic");
+            // Loop engine sound forever
+            this.introMusic.loop = -1;
             //Add Menu Label
             this._menuLabel = new objects.Label("SKY BIRDS 2", "60px Consolas", "#000000", config.Screen.CENTER_X * 0.83, config.Screen.CENTER_Y - 80, true);
             this.addChild(this._menuLabel);
@@ -35,7 +39,8 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // LEFT_CAVE Button click event handler
         Menu.prototype._startButtonClick = function (event) {
-            // Switch to the LEFT_CAVE Scene
+            // Switch to the PLAY Scene
+            this.introMusic.stop();
             scene = config.Scene.PLAY;
             changeScene();
         };

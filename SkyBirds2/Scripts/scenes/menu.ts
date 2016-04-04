@@ -6,6 +6,9 @@ module scenes {
         private _startButton: objects.Button;
         private _background: createjs.Bitmap;
         
+        //PUBLIC INSTANCE VARIABLES
+        public introMusic: createjs.AbstractSoundInstance;
+
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
             super();
@@ -20,7 +23,11 @@ module scenes {
             this._background = new createjs.Bitmap("../../Assets/images/bkgd.png");
             this.addChild(this._background);
 
-         
+            // assign and play the background sound
+            this.introMusic = createjs.Sound.play("introMusic");
+            // Loop engine sound forever
+            this.introMusic.loop = -1;
+
             //Add Menu Label
             this._menuLabel = new objects.Label(
                 "SKY BIRDS 2", "60px Consolas",
@@ -54,7 +61,8 @@ module scenes {
         
         // LEFT_CAVE Button click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
-            // Switch to the LEFT_CAVE Scene
+            // Switch to the PLAY Scene
+            this.introMusic.stop();
             scene = config.Scene.PLAY;
             changeScene();
         }
