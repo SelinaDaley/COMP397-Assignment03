@@ -1,3 +1,7 @@
+/* Author: Selina Daley */
+/* File: alien.ts */
+/* Last Modified Date: April 3, 2016 */
+/* Description: This script is used to create a Alien enemy */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -13,10 +17,9 @@ var objects;
             _super.call(this, "alien");
             this._firstSet = true;
             this._num = num;
-            this._speed.x -= 5; //enemy speed
+            this._speed.x -= Math.floor(Math.random() * 3) + 5; //6; //enemy speed
             this._reset(this._rightBounds);
             this.name = "alien";
-            //this.soundString = "yay";
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
         Alien.prototype._checkBounds = function (value) {
@@ -36,7 +39,7 @@ var objects;
             else {
                 this.x = value;
                 this.y = Math.floor(Math.random() * 365);
-                scoreValue += 5;
+                scoreValue += 10;
             }
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
@@ -46,6 +49,7 @@ var objects;
             this._checkBounds(this._leftBounds);
         };
         return Alien;
-    })(objects.GameObject);
+    })(objects.SpriteGameObject);
     objects.Alien = Alien;
 })(objects || (objects = {}));
+//# sourceMappingURL=alien.js.map

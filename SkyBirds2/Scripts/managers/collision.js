@@ -29,9 +29,9 @@ var managers;
                     }
                     // check if it's a cloud hit
                     if (object.name === 'alien' || object.name === 'bomb' || object.name === "dark") {
-                        //createjs.Sound.play("thunder");
+                        object._reset(config.Screen.WIDTH + 200);
                         livesValue--; // lose a life
-                        this._explosionMusic = createjs.Sound.play("explosionMusic");
+                        this._explosionMusic = createjs.Sound.play("explosionMusic").setPan(0.0001).setVolume(0.5);
                         // check if player has no more lives
                         if (livesValue <= 0) {
                             // turn off player engine
@@ -52,3 +52,4 @@ var managers;
     })();
     managers.Collision = Collision;
 })(managers || (managers = {}));
+//# sourceMappingURL=collision.js.map

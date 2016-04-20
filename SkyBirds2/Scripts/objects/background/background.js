@@ -37,3 +37,4 @@ var objects;
     })(objects.GameObject);
     objects.Background = Background;
 })(objects || (objects = {}));
+//# sourceMappingURL=background.js.map

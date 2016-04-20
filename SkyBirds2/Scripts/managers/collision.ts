@@ -14,7 +14,7 @@ module managers {
             return Math.sqrt(Math.pow((endPoint.x - startPoint.x), 2) + Math.pow(endPoint.y - startPoint.y, 2))
         }
 
-        public check(object: objects.GameObject) {
+        public check(object: objects.SpriteGameObject) {
             var startPoint: createjs.Point = new createjs.Point();
             var endPoint: createjs.Point = new createjs.Point();
             var playerHalfHeight: number = this._player.height * 0.5;
@@ -40,9 +40,9 @@ module managers {
 
                     // check if it's a cloud hit
                     if (object.name === 'alien' || object.name === 'bomb' || object.name === "dark") {
-                        //createjs.Sound.play("thunder");
+                        object._reset(config.Screen.WIDTH + 200);
                         livesValue--; // lose a life
-                        this._explosionMusic = createjs.Sound.play("explosionMusic");
+                        this._explosionMusic = createjs.Sound.play("explosionMusic").setPan(0.0001).setVolume(0.5);
 
                         // check if player has no more lives
                         if(livesValue <= 0) {

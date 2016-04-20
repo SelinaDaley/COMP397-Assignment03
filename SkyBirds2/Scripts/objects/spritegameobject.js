@@ -5,12 +5,12 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var objects;
 (function (objects) {
-    // GAMEOBJECT SUPER CLASS ++++++++++++++++++++++++++++++++++++
-    var GameObject = (function (_super) {
-        __extends(GameObject, _super);
+    // SPRITEGAMEOBJECT SUPER CLASS ++++++++++++++++++++++++++++++++++++
+    var SpriteGameObject = (function (_super) {
+        __extends(SpriteGameObject, _super);
         // CONSTRUCTOR METHOD +++++++++++++++++++++++++
-        function GameObject(bitmapString) {
-            _super.call(this, assets.getResult(bitmapString));
+        function SpriteGameObject(spriteString) {
+            _super.call(this, textureAtlas, spriteString);
             this._speed = new createjs.Point(0, 0);
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
@@ -23,7 +23,7 @@ var objects;
             this._rightBounds = config.Screen.WIDTH + this.width;
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++
-        GameObject.prototype._checkBounds = function (value) {
+        SpriteGameObject.prototype._checkBounds = function (value) {
             var resetValue = 0;
             // check if x value has met the reset criteria
             if (this.x >= value) {
@@ -31,18 +31,18 @@ var objects;
             }
         };
         // Reset the Object offscreen
-        GameObject.prototype._reset = function (value) {
+        SpriteGameObject.prototype._reset = function (value) {
             this.x = value;
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
-        GameObject.prototype.update = function () {
+        SpriteGameObject.prototype.update = function () {
             var boundValue = 0;
             // scroll the ocean 5 px per frame
             this.x += this._speed.x;
             this._checkBounds(boundValue);
         };
-        return GameObject;
-    })(createjs.Bitmap);
-    objects.GameObject = GameObject;
+        return SpriteGameObject;
+    })(createjs.Sprite);
+    objects.SpriteGameObject = SpriteGameObject;
 })(objects || (objects = {}));
-//# sourceMappingURL=gameobject.js.map
+//# sourceMappingURL=spritegameobject.js.map

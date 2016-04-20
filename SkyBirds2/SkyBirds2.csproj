@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\audio\8-bit-music.mp3" />
+    <Content Include="Assets\audio\8-punk-8-bit-music.mp3" />
     <Content Include="Assets\audio\BombExplosion.wav" />
     <Content Include="Assets\audio\coin10.wav" />
     <Content Include="Assets\audio\POL-starry-night-short.wav" />
@@ -109,6 +110,12 @@
     <Content Include="Assets\images\dark2.png" />
     <Content Include="Assets\images\hero.png" />
     <Content Include="Assets\images\hero2.png" />
+    <Content Include="Assets\images\horn.png" />
+    <Content Include="Assets\images\horn2.png" />
+    <Content Include="Assets\images\life.png" />
+    <Content Include="Assets\images\life2.png" />
+    <Content Include="Assets\images\logo.png" />
+    <Content Include="Assets\images\logo2.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -141,12 +148,16 @@
     <Content Include="Scripts\objects\ocean.js.map" />
     <Content Include="Scripts\objects\player.js.map" />
     <Content Include="Scripts\objects\scene.js.map" />
+    <Content Include="Scripts\objects\spritegameobject.js" />
     <Content Include="Scripts\scenes\end.js.map" />
     <Content Include="Scripts\scenes\menu.js.map" />
     <Content Include="Scripts\scenes\play.js.map" />
     <Content Include="Scripts\objects\background\background.js.map" />
     <Content Include="Scripts\objects\enemies\alien.js.map" />
     <Content Include="Scripts\managers\collision.js.map" />
+    <Content Include="Scripts\objects\enemies\bomb.js.map" />
+    <Content Include="Scripts\objects\enemies\dark.js.map" />
+    <Content Include="Assets\images\atlas.tps" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -232,6 +243,7 @@
     <TypeScriptCompile Include="Scripts\objects\ocean.ts" />
     <TypeScriptCompile Include="Scripts\objects\player.ts" />
     <TypeScriptCompile Include="Scripts\objects\scene.ts" />
+    <TypeScriptCompile Include="Scripts\objects\spritegameobject.ts" />
     <TypeScriptCompile Include="Scripts\scenes\end.ts" />
     <TypeScriptCompile Include="Scripts\scenes\menu.ts" />
     <TypeScriptCompile Include="Scripts\scenes\play.ts" />

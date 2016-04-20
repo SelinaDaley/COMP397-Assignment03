@@ -1,4 +1,3 @@
-//using System.Threading.*;
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -12,6 +11,7 @@ var scenes;
         // CONSTRUCTOR ++++++++++++++++++++++
         function Play() {
             _super.call(this);
+            this._time = 0;
         }
         // PRIVATE METHODS
         /**
@@ -21,6 +21,7 @@ var scenes;
         Play.prototype._updateScore = function () {
             this._livesLabel.text = "Lives: " + livesValue;
             this._scoreLabel.text = "Score: " + scoreValue;
+            this._timeLabel.text = "Time: " + Math.floor(this._time / 60);
         };
         // PUBLIC METHODS +++++++++++++++++++++
         // Start Method
@@ -28,6 +29,7 @@ var scenes;
             // Set Enemy Count
             this._alienCount = 5;
             this._darkCount = 2;
+            this._shotCount = 1;
             livesValue = 5;
             scoreValue = 0;
             // Instantiate arrays
@@ -46,7 +48,7 @@ var scenes;
             }
             // added darks to the scene
             for (var dark = 0; dark < this._darkCount; dark++) {
-                this._darks[dark] = new objects.Dark(dark);
+                this._darks[dark] = new objects.Dark(dark, this._darkCount);
                 this.addChild(this._darks[dark]);
             }
             // added player to the scene
@@ -58,6 +60,9 @@ var scenes;
             //added LivesLabel to the scene
             this._scoreLabel = new objects.Label("Score: " + scoreValue, "40px Consolas", "#ffffff", 290, 460, false);
             this.addChild(this._scoreLabel);
+            //added TimeLabel to the scene
+            this._timeLabel = new objects.Label("Time: " + Math.floor(this._time / 60), "40px Consolas", "#ffffff", 590, 460, false);
+            this.addChild(this._timeLabel);
             // added collision manager to the scene
             this._collision = new managers.Collision(this._player);
             // add this scene to the global stage container
@@ -79,8 +84,10 @@ var scenes;
                 _this._collision.check(dark);
             });
             this._updateScore();
+            this._time++;
         };
         return Play;
     })(objects.Scene);
     scenes.Play = Play;
 })(scenes || (scenes = {}));
+//# sourceMappingURL=play.js.map

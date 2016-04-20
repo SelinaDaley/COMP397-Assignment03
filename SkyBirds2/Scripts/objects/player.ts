@@ -1,6 +1,6 @@
 module objects {
     // PLAYER CLASS ++++++++++++++++++++++++++++++
-    export class Player extends createjs.Bitmap {
+    export class Player extends createjs.Sprite {
         // PRIVATE INSTANCE VARIABLES
         private _leftBounds: number;
         private _rightBounds: number;
@@ -13,7 +13,7 @@ module objects {
         public gameMusic: createjs.AbstractSoundInstance;
 
         constructor() {
-            super(assets.getResult("hero"));
+            super(textureAtlas, "eagle");
 
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
@@ -24,12 +24,10 @@ module objects {
             this._leftBounds = this.width * 0.5;
             this._rightBounds = config.Screen.WIDTH / 2;
             this._topBounds = this.height * 0.5;
-            this._bottomBounds = config.Screen.HEIGHT - (this.height * 1.5);
-
-            //this.y = 430;
-            
+            this._bottomBounds = config.Screen.HEIGHT - (this.height * 2);
+                        
             // assign and play the engine sound
-            this.gameMusic = createjs.Sound.play("gameMusic");
+            this.gameMusic = createjs.Sound.play("gameMusic").setPan(0.0001).setVolume(0.2);
             // Loop engine sound forever
             this.gameMusic.loop = -1;
         }

@@ -1,3 +1,7 @@
+/* Author: Selina Daley */
+/* File: bomb.ts */
+/* Last Modified Date: April 13, 2016 */
+/* Description: This script is used to create a Bomb enemy */
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
@@ -13,7 +17,7 @@ var objects;
             _super.call(this, "bomb");
             // PRIVATE INSTANCE VARIABLES +++++++++++++++++
             this._firstSet = true;
-            this._speed.x -= 10; //enemy speed
+            this._speed.x -= 12; //enemy speed
             this._reset(this._rightBounds);
             this.name = "bomb";
         }
@@ -27,8 +31,6 @@ var objects;
         };
         // reset the enemy offscreen
         Bomb.prototype._reset = function (value) {
-            this.x = value + 1000;
-            this.y = Math.floor(Math.random() * 365);
             if (this._firstSet) {
                 this.x = value + 1000;
                 this.y = Math.floor(Math.random() * 365);
@@ -37,7 +39,7 @@ var objects;
             else {
                 this.x = value + 1000;
                 this.y = Math.floor(Math.random() * 365);
-                scoreValue += 10;
+                scoreValue += 25;
             }
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++
@@ -47,6 +49,7 @@ var objects;
             this._checkBounds(this._leftBounds);
         };
         return Bomb;
-    })(objects.GameObject);
+    })(objects.SpriteGameObject);
     objects.Bomb = Bomb;
 })(objects || (objects = {}));
+//# sourceMappingURL=bomb.js.map
