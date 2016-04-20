@@ -108,6 +108,7 @@
     <Content Include="Assets\images\bomb2.png" />
     <Content Include="Assets\images\dark.png" />
     <Content Include="Assets\images\dark2.png" />
+    <Content Include="Assets\images\GameOverBackground.png" />
     <Content Include="Assets\images\hero.png" />
     <Content Include="Assets\images\hero2.png" />
     <Content Include="Assets\images\horn.png" />
@@ -158,6 +159,7 @@
     <Content Include="Scripts\objects\enemies\bomb.js.map" />
     <Content Include="Scripts\objects\enemies\dark.js.map" />
     <Content Include="Assets\images\atlas.tps" />
+    <Content Include="Scripts\objects\spritegameobject.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
